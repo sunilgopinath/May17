@@ -40,9 +40,10 @@
 		self.text = t;		//text = [t copy];
 	}
 	
-    picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 152, 0, 0)];
+    picker = [[UIPickerView alloc] initWithFrame:CGRectZero];
     picker.delegate = self;
     picker.showsSelectionIndicator = YES;
+    picker.userInteractionEnabled = NO;
     [self.view addSubview:picker];
     self.view.backgroundColor = [UIColor blueColor];	
     return self;
@@ -52,8 +53,8 @@
 - (void) loadView
 {
 	[super loadView];
-    //CGRect frame = [UIScreen mainScreen].applicationFrame;
-	//self.view = [[SlotView alloc] initWithFrame: frame controller: self];
+    CGRect frame = [UIScreen mainScreen].applicationFrame;
+	self.view = [[SlotView alloc] initWithFrame: frame controller: self];
     
     
 }
@@ -124,4 +125,6 @@ numberOfRowsInComponent:(NSInteger)component
     NSArray *array = [self valueForKey:arrayName];
     return [array objectAtIndex:row];
 }
+
+
 @end

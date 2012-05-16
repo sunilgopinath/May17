@@ -20,6 +20,9 @@
 		0F8E7ED815632DEA0021F777 /* crown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F8E7ED315632DEA0021F777 /* crown.png */; };
 		0F8E7ED915632DEA0021F777 /* lemon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F8E7ED415632DEA0021F777 /* lemon.png */; };
 		0F8E7EDA15632DEA0021F777 /* seven.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F8E7ED515632DEA0021F777 /* seven.png */; };
+		0F977D4F1563FE1E00A9D2A4 /* spinbackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F977D4E1563FE1E00A9D2A4 /* spinbackground.jpg */; };
+		0F977D52156406A400A9D2A4 /* spin.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F977D51156406A400A9D2A4 /* spin.png */; };
+		0F977D5415640B7400A9D2A4 /* playagain.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F977D5315640B7400A9D2A4 /* playagain.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		0F8E7ED315632DEA0021F777 /* crown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crown.png; sourceTree = SOURCE_ROOT; };
 		0F8E7ED415632DEA0021F777 /* lemon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lemon.png; sourceTree = SOURCE_ROOT; };
 		0F8E7ED515632DEA0021F777 /* seven.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seven.png; sourceTree = SOURCE_ROOT; };
+		0F977D4E1563FE1E00A9D2A4 /* spinbackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spinbackground.jpg; sourceTree = SOURCE_ROOT; };
+		0F977D51156406A400A9D2A4 /* spin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spin.png; sourceTree = SOURCE_ROOT; };
+		0F977D5315640B7400A9D2A4 /* playagain.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = playagain.gif; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,9 @@
 		0F8E7EBB15631FA10021F777 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0F977D5315640B7400A9D2A4 /* playagain.gif */,
+				0F977D51156406A400A9D2A4 /* spin.png */,
+				0F977D4E1563FE1E00A9D2A4 /* spinbackground.jpg */,
 				0F8E7ED115632DEA0021F777 /* bar.png */,
 				0F8E7ED215632DEA0021F777 /* cherry.png */,
 				0F8E7ED315632DEA0021F777 /* crown.png */,
@@ -172,6 +181,9 @@
 				0F8E7ED815632DEA0021F777 /* crown.png in Resources */,
 				0F8E7ED915632DEA0021F777 /* lemon.png in Resources */,
 				0F8E7EDA15632DEA0021F777 /* seven.png in Resources */,
+				0F977D4F1563FE1E00A9D2A4 /* spinbackground.jpg in Resources */,
+				0F977D52156406A400A9D2A4 /* spin.png in Resources */,
+				0F977D5415640B7400A9D2A4 /* playagain.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +301,7 @@
 				0F8E7ECA15631FA10021F777 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

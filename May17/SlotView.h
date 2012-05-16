@@ -11,6 +11,9 @@
 
 @interface SlotView : UITextView {
     SlotViewController *viewController;
+    UIButton *button;
+    UIButton *playAgainbutton;
+    UILabel *label;
 }
 
 - (id) initWithFrame: (CGRect) frame controller: (SlotViewController *) c;

@@ -114,7 +114,7 @@
 		winnings = [[UILabel alloc] initWithFrame: f];
         winnings.backgroundColor = [UIColor clearColor];
         winnings.textColor = [UIColor whiteColor];
-        winnings.text = [NSString stringWithFormat:@"winings: $%d.00", 0];
+        winnings.text = [NSString stringWithFormat:@"You are up: $%d.00", 0];
 		winnings.font = font;
         
 		[self addSubview: winnings];
@@ -164,14 +164,17 @@
             label.text = @"";
             
         }
-        winnings.text = [NSString stringWithFormat:@"winings: $%d.00", money];
+        NSString *status;
+        if(money > 0) {
+            status = [NSString stringWithFormat:@"You are up: "];
+        } else {
+            status = [NSString stringWithFormat:@"You are down: "];
+
+        }
+        winnings.text = [NSString stringWithFormat:@"%@ $%d.00", status, abs(money)];
     }
 
     
-}
-
-- (void) touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event {
-	[viewController presentModalViewController];
 }
 
 // Only override drawRect: if you perform custom drawing.

@@ -29,6 +29,8 @@
 
 - (void) presentModalViewController;
 - (void) playSound:(id) sender;
+- (void) playCelebration: (id) sender;
+- (void) stopCelebration;
 
 @property (nonatomic, copy) IBOutlet NSString *text;
 @property (nonatomic, strong) UIPickerView *picker;

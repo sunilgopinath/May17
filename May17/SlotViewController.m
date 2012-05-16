@@ -65,12 +65,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIImage *seven = [UIImage imageNamed:@"seven.png"];
-    UIImage *bar = [UIImage imageNamed:@"bar.png"];
-    UIImage *crown = [UIImage imageNamed:@"crown.png"];
-    UIImage *cherry = [UIImage imageNamed:@"cherry.png"];
-    UIImage *lemon = [UIImage imageNamed:@"lemon.png"];
-    UIImage *apple = [UIImage imageNamed:@"apple.png"];
+    UIImage *seven = [UIImage imageNamed:@"ios.png"];
+    UIImage *bar = [UIImage imageNamed:@"cycling.png"];
+    UIImage *crown = [UIImage imageNamed:@"cricket.png"];
+    UIImage *cherry = [UIImage imageNamed:@"bell.jpg"];
+    UIImage *lemon = [UIImage imageNamed:@"smiley.gif"];
+    UIImage *apple = [UIImage imageNamed:@"ladybug.jpg"];
     
     for(int i =1; i<=5; i++)
     {
@@ -131,16 +131,29 @@ numberOfRowsInComponent:(NSInteger)component
 - (void) presentModalViewController {
 	[self presentModalViewController:
      [[UINavigationController alloc] initWithRootViewController:
-      [[CelebrationViewController alloc] initWithNibName: nil bundle: nil]
+      [[CelebrationViewController alloc] initWithController:self]
       ]
                             animated: YES
      ];
+    [self playCelebration];
 }
 
 - (void) playSound:(id)sender {
 	UIApplication *application = [UIApplication sharedApplication];
 	May17AppDelegate *applicationDelegate = application.delegate;
 	[applicationDelegate playSound:sender];
+}
+
+- (void) playCelebration {
+	UIApplication *application = [UIApplication sharedApplication];
+	May17AppDelegate *applicationDelegate = application.delegate;
+	[applicationDelegate playCelebration];
+}
+
+- (void) stopCelebration {
+	UIApplication *application = [UIApplication sharedApplication];
+	May17AppDelegate *applicationDelegate = application.delegate;
+	[applicationDelegate stopCelebration];
 }
 
 @end

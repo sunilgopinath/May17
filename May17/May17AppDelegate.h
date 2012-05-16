@@ -8,13 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>	//needed for SystemSoundID
+#import <AVFoundation/AVAudioPlayer.h>
 
-@interface May17AppDelegate : UIResponder <UIApplicationDelegate> {
+@interface May17AppDelegate : UIResponder <UIApplicationDelegate, AVAudioPlayerDelegate> {
 	UIWindow *_window;
     SystemSoundID sid;
+    AVAudioPlayer *player;
 }
 
 - (void) playSound:(id) sender;
+- (void) playCelebration;
+- (void) stopCelebration;
+
 @property (strong, nonatomic) UIWindow *window;
 
 @end

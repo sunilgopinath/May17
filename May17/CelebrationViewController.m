@@ -8,6 +8,7 @@
 
 #import "CelebrationViewController.h"
 #import "CelebrationView.h"
+#import "SlotViewController.h"
 
 @interface CelebrationViewController ()
 
@@ -15,6 +16,8 @@
 
 @implementation CelebrationViewController
 
+
+/*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,6 +31,22 @@
     }
     return self;
 }
+*/
+- (id) initWithController:(SlotViewController *) c {
+    self = [super initWithNibName: nil bundle: nil];
+    if (self) {
+        // Custom initialization
+        self.navigationItem.rightBarButtonItem =
+        [[UIBarButtonItem alloc] initWithTitle: @"Done"
+                                         style: UIBarButtonItemStyleDone
+                                        target: self
+                                        action: @selector(dismissModalViewController)];
+        viewController = c;
+    }
+    return self;
+}
+
+
 
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -40,6 +59,7 @@
 - (void) dismissModalViewController {
 	//Before iOS 5, we said parentViewController instead of presentingViewController.
 	[self.presentingViewController dismissModalViewControllerAnimated: YES];
+    [viewController stopCelebration];
 }
 
 - (void)viewDidLoad

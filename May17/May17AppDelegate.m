@@ -8,6 +8,7 @@
 
 #import "May17AppDelegate.h"
 #include "SlotViewController.h"
+#include "RouletteViewController.h"
 
 @implementation May17AppDelegate
 
@@ -15,9 +16,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    /********************
-     *** SET UP SOUND ***
-     ********************/
+    /*************************
+     *** SET UP SLOT SOUND ***
+     *************************/
     // Override point for customization after application launch.
 	NSBundle *bundle = [NSBundle mainBundle];
 	NSLog(@"bundle.bundlePath == \"%@\"", bundle.bundlePath);	
@@ -33,6 +34,38 @@
 		NSLog(@"AudioServicesCreateSystemSoundID error == %ld", error);
 	}
     
+    /**********************
+     ** SET UP CELEBRATE **
+     *********************/
+    // Override point for customization after application launch.
+	NSBundle *bundleCelebrate = [NSBundle mainBundle];
+	NSLog(@"bundle.bundelPath == \"%@\"", bundleCelebrate.bundlePath);
+    
+	NSString *filenameCelebrate = [bundleCelebrate pathForResource: @"cel" ofType: @"mp3"];
+	NSLog(@"filename == \"%@\"", filenameCelebrate);
+    
+	NSURL *urlCelebrate = [NSURL fileURLWithPath: filenameCelebrate isDirectory: NO];
+	NSLog(@"url == \"%@\"", urlCelebrate);
+    
+	NSError *errorCelebrate = nil;
+	player = [[AVAudioPlayer alloc] initWithContentsOfURL: urlCelebrate error: &errorCelebrate];
+    
+	if (player == nil) {
+		NSLog(@"could not initialize player:  %@", error);
+		return YES;
+	}
+    
+	player.volume = 1.0;		//the default
+	player.numberOfLoops = -1;	//negative for infinite loop
+	player.delegate = self;
+	//mono or stereo
+	NSLog(@"player.numberOfChannels == %u", player.numberOfChannels);
+    
+	if (![player prepareToPlay]) {
+		NSLog(@"prepareToPlay failed");
+		return YES;
+	}
+    
     
     self.window = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
 	// Override point for customization after application launch.
@@ -41,12 +74,17 @@
 	tabBarController.viewControllers = [NSArray arrayWithObjects:
                                         
                                         [[SlotViewController alloc]
-                                         initWithText: @"The Bronx is up and the Battery’s down!"	//apostophe, not prime
-                                         title: @"The Bronx"
-                                         image: [UIImage imageNamed: @"bronx.png"]
+                                         initWithText: @"Come lose some money!"	//apostophe, not prime
+                                         title: @"Slot Machine"
+                                         image: [UIImage imageNamed: @"slot_machine.png"]
                                          badge: nil
                                          ],
-                                        
+                                        [[RouletteViewController alloc]
+                                         initWithText: @"You spin me right round!"	//apostophe, not prime
+                                         title: @"Roulette"
+                                         image: [UIImage imageNamed: @"slot_machine.png"]
+                                         badge: nil
+                                         ],
                                         nil
                                         ];
     
@@ -93,5 +131,18 @@
 	AudioServicesPlaySystemSound(sid);
 }
 
+- (void) playCelebration {
+    if (![player play]) {
+        NSLog(@"could not play");
+    }
+}
 
+- (void) stopCelebration {
+    NSLog(@"Paused at %g of %g seconds.", player.currentTime, player.duration);
+    [player pause];
+    
+    if (![player prepareToPlay]) {
+        NSLog(@"prepareToPlay failed");
+    }
+}
 @end

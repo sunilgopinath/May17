@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SlotViewController;
 
-@interface CelebrationViewController : UIViewController
+@interface CelebrationViewController : UIViewController {
+    SlotViewController *viewController;
+}
 
 - (void) dismissModalViewController;
 
+- (id) initWithController:(SlotViewController *) c;
 
 @end

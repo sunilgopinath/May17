@@ -57,9 +57,19 @@
 		0F977DB61564279500A9D2A4 /* james27.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F977D991564279500A9D2A4 /* james27.gif */; };
 		0F977DB71564279500A9D2A4 /* james28.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F977D9A1564279500A9D2A4 /* james28.gif */; };
 		0F977DB81564279500A9D2A4 /* james29.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F977D9B1564279500A9D2A4 /* james29.gif */; };
-		0F977DBA15642CCA00A9D2A4 /* celebrate.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F977DB915642CCA00A9D2A4 /* celebrate.mp3 */; };
 		0F977DBC15642EA600A9D2A4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F977DBB15642EA600A9D2A4 /* AudioToolbox.framework */; };
 		0F977DBE15642F2F00A9D2A4 /* chaching.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F977DBD15642F2F00A9D2A4 /* chaching.mp3 */; };
+		0F977DC01564317E00A9D2A4 /* ladybug.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F977DBF1564317E00A9D2A4 /* ladybug.jpg */; };
+		0F977DC2156431E600A9D2A4 /* smiley.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F977DC1156431E600A9D2A4 /* smiley.gif */; };
+		0F977DC41564322E00A9D2A4 /* bell.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F977DC31564322E00A9D2A4 /* bell.jpg */; };
+		0F977DC61564327C00A9D2A4 /* cricket.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F977DC51564327B00A9D2A4 /* cricket.png */; };
+		0F977DC8156432CB00A9D2A4 /* cycling.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F977DC7156432CB00A9D2A4 /* cycling.png */; };
+		0F977DCA1564331B00A9D2A4 /* ios.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F977DC91564331B00A9D2A4 /* ios.png */; };
+		0F977E521564362E00A9D2A4 /* cel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F977E511564362E00A9D2A4 /* cel.mp3 */; };
+		0F977E541564367700A9D2A4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F977E531564367700A9D2A4 /* AVFoundation.framework */; };
+		0F977E5615643F6800A9D2A4 /* slot_machine.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F977E5515643F6800A9D2A4 /* slot_machine.png */; };
+		0F977E591564428600A9D2A4 /* RouletteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F977E581564428500A9D2A4 /* RouletteViewController.m */; };
+		0F977E5C1564429B00A9D2A4 /* RouletteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F977E5B1564429A00A9D2A4 /* RouletteView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,9 +131,21 @@
 		0F977D991564279500A9D2A4 /* james27.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = james27.gif; sourceTree = SOURCE_ROOT; };
 		0F977D9A1564279500A9D2A4 /* james28.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = james28.gif; sourceTree = SOURCE_ROOT; };
 		0F977D9B1564279500A9D2A4 /* james29.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = james29.gif; sourceTree = SOURCE_ROOT; };
-		0F977DB915642CCA00A9D2A4 /* celebrate.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = celebrate.mp3; sourceTree = SOURCE_ROOT; };
 		0F977DBB15642EA600A9D2A4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		0F977DBD15642F2F00A9D2A4 /* chaching.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chaching.mp3; sourceTree = SOURCE_ROOT; };
+		0F977DBF1564317E00A9D2A4 /* ladybug.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ladybug.jpg; sourceTree = SOURCE_ROOT; };
+		0F977DC1156431E600A9D2A4 /* smiley.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = smiley.gif; sourceTree = SOURCE_ROOT; };
+		0F977DC31564322E00A9D2A4 /* bell.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bell.jpg; sourceTree = SOURCE_ROOT; };
+		0F977DC51564327B00A9D2A4 /* cricket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cricket.png; sourceTree = SOURCE_ROOT; };
+		0F977DC7156432CB00A9D2A4 /* cycling.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycling.png; sourceTree = SOURCE_ROOT; };
+		0F977DC91564331B00A9D2A4 /* ios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ios.png; sourceTree = SOURCE_ROOT; };
+		0F977E511564362E00A9D2A4 /* cel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cel.mp3; sourceTree = SOURCE_ROOT; };
+		0F977E531564367700A9D2A4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0F977E5515643F6800A9D2A4 /* slot_machine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slot_machine.png; sourceTree = SOURCE_ROOT; };
+		0F977E571564428500A9D2A4 /* RouletteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouletteViewController.h; sourceTree = "<group>"; };
+		0F977E581564428500A9D2A4 /* RouletteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouletteViewController.m; sourceTree = "<group>"; };
+		0F977E5A1564429A00A9D2A4 /* RouletteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouletteView.h; sourceTree = "<group>"; };
+		0F977E5B1564429A00A9D2A4 /* RouletteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouletteView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F977E541564367700A9D2A4 /* AVFoundation.framework in Frameworks */,
 				0F977DBC15642EA600A9D2A4 /* AudioToolbox.framework in Frameworks */,
 				0F8E7EB515631FA10021F777 /* UIKit.framework in Frameworks */,
 				0F8E7EB715631FA10021F777 /* Foundation.framework in Frameworks */,
@@ -161,6 +184,7 @@
 		0F8E7EB315631FA10021F777 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F977E531564367700A9D2A4 /* AVFoundation.framework */,
 				0F977DBB15642EA600A9D2A4 /* AudioToolbox.framework */,
 				0F8E7EB415631FA10021F777 /* UIKit.framework */,
 				0F8E7EB615631FA10021F777 /* Foundation.framework */,
@@ -182,6 +206,10 @@
 				0F977D5A1564136500A9D2A4 /* CelebrationViewController.m */,
 				0F977D5C156413EB00A9D2A4 /* CelebrationView.h */,
 				0F977D5D156413EB00A9D2A4 /* CelebrationView.m */,
+				0F977E571564428500A9D2A4 /* RouletteViewController.h */,
+				0F977E581564428500A9D2A4 /* RouletteViewController.m */,
+				0F977E5A1564429A00A9D2A4 /* RouletteView.h */,
+				0F977E5B1564429A00A9D2A4 /* RouletteView.m */,
 				0F8E7EBB15631FA10021F777 /* Supporting Files */,
 			);
 			path = May17;
@@ -190,8 +218,15 @@
 		0F8E7EBB15631FA10021F777 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0F977E5515643F6800A9D2A4 /* slot_machine.png */,
+				0F977E511564362E00A9D2A4 /* cel.mp3 */,
+				0F977DC91564331B00A9D2A4 /* ios.png */,
+				0F977DC7156432CB00A9D2A4 /* cycling.png */,
+				0F977DC51564327B00A9D2A4 /* cricket.png */,
+				0F977DC31564322E00A9D2A4 /* bell.jpg */,
+				0F977DC1156431E600A9D2A4 /* smiley.gif */,
+				0F977DBF1564317E00A9D2A4 /* ladybug.jpg */,
 				0F977DBD15642F2F00A9D2A4 /* chaching.mp3 */,
-				0F977DB915642CCA00A9D2A4 /* celebrate.mp3 */,
 				0F977D7F1564279400A9D2A4 /* james1.gif */,
 				0F977D801564279400A9D2A4 /* james2.gif */,
 				0F977D811564279400A9D2A4 /* james3.gif */,
@@ -332,8 +367,15 @@
 				0F977DB61564279500A9D2A4 /* james27.gif in Resources */,
 				0F977DB71564279500A9D2A4 /* james28.gif in Resources */,
 				0F977DB81564279500A9D2A4 /* james29.gif in Resources */,
-				0F977DBA15642CCA00A9D2A4 /* celebrate.mp3 in Resources */,
 				0F977DBE15642F2F00A9D2A4 /* chaching.mp3 in Resources */,
+				0F977DC01564317E00A9D2A4 /* ladybug.jpg in Resources */,
+				0F977DC2156431E600A9D2A4 /* smiley.gif in Resources */,
+				0F977DC41564322E00A9D2A4 /* bell.jpg in Resources */,
+				0F977DC61564327C00A9D2A4 /* cricket.png in Resources */,
+				0F977DC8156432CB00A9D2A4 /* cycling.png in Resources */,
+				0F977DCA1564331B00A9D2A4 /* ios.png in Resources */,
+				0F977E521564362E00A9D2A4 /* cel.mp3 in Resources */,
+				0F977E5615643F6800A9D2A4 /* slot_machine.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +392,8 @@
 				0F8E7ED01563217F0021F777 /* SlotView.m in Sources */,
 				0F977D5B1564136500A9D2A4 /* CelebrationViewController.m in Sources */,
 				0F977D5E156413EB00A9D2A4 /* CelebrationView.m in Sources */,
+				0F977E591564428600A9D2A4 /* RouletteViewController.m in Sources */,
+				0F977E5C1564429B00A9D2A4 /* RouletteView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -126,6 +126,7 @@
 
 - (void) touchUpInside: (id) sender {
     [button removeFromSuperview];
+    [viewController playSound:sender];
     if(money <= -100) {
         [button removeFromSuperview];
         [playAgainbutton removeFromSuperview];

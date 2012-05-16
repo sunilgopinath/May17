@@ -28,6 +28,7 @@
               badge: (NSString *) badge;
 
 - (void) presentModalViewController;
+- (void) playSound:(id) sender;
 
 @property (nonatomic, copy) IBOutlet NSString *text;
 @property (nonatomic, strong) UIPickerView *picker;

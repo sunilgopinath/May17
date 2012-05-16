@@ -15,6 +15,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    /********************
+     *** SET UP SOUND ***
+     ********************/
+    // Override point for customization after application launch.
+	NSBundle *bundle = [NSBundle mainBundle];
+	NSLog(@"bundle.bundlePath == \"%@\"", bundle.bundlePath);	
+    
+	NSString *filename = [bundle pathForResource: @"chaching" ofType: @"mp3"];
+	NSLog(@"filename == \"%@\"", filename);
+    
+	NSURL *url = [NSURL fileURLWithPath: filename isDirectory: NO];
+	NSLog(@"url == \"%@\"", url);
+    
+	OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &sid);
+	if (error != kAudioServicesNoError) {
+		NSLog(@"AudioServicesCreateSystemSoundID error == %ld", error);
+	}
+    
+    
     self.window = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
 	// Override point for customization after application launch.
 	UITabBarController *tabBarController = [[UITabBarController alloc] init];
@@ -63,5 +82,16 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (void) playSound: (id) sender {
+	//The sender is the button that was pressed.
+    
+	NSLog(@"The \"%@\" button was pressed.",
+		  [sender titleForState: UIControlStateNormal]);
+    
+	//AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+	AudioServicesPlaySystemSound(sid);
+}
+
 
 @end

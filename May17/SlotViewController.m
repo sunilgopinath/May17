@@ -9,6 +9,7 @@
 #import "SlotViewController.h"
 #import "SlotView.h"
 #import "CelebrationViewController.h"
+#import "May17AppDelegate.h"
 
 @interface SlotViewController ()
 
@@ -133,7 +134,13 @@ numberOfRowsInComponent:(NSInteger)component
       [[CelebrationViewController alloc] initWithNibName: nil bundle: nil]
       ]
                             animated: YES
-     ];}
+     ];
+}
 
+- (void) playSound:(id)sender {
+	UIApplication *application = [UIApplication sharedApplication];
+	May17AppDelegate *applicationDelegate = application.delegate;
+	[applicationDelegate playSound:sender];
+}
 
 @end

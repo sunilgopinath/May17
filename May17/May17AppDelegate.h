@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>	//needed for SystemSoundID
 
 @interface May17AppDelegate : UIResponder <UIApplicationDelegate> {
 	UIWindow *_window;
+    SystemSoundID sid;
 }
 
-
+- (void) playSound:(id) sender;
 @property (strong, nonatomic) UIWindow *window;
 
 @end

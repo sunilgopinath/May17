@@ -8,6 +8,7 @@
 
 #import "SlotViewController.h"
 #import "SlotView.h"
+#import "CelebrationViewController.h"
 
 @interface SlotViewController ()
 
@@ -125,6 +126,14 @@ numberOfRowsInComponent:(NSInteger)component
     NSArray *array = [self valueForKey:arrayName];
     return [array objectAtIndex:row];
 }
+
+- (void) presentModalViewController {
+	[self presentModalViewController:
+     [[UINavigationController alloc] initWithRootViewController:
+      [[CelebrationViewController alloc] initWithNibName: nil bundle: nil]
+      ]
+                            animated: YES
+     ];}
 
 
 @end

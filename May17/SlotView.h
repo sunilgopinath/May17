@@ -14,6 +14,10 @@
     UIButton *button;
     UIButton *playAgainbutton;
     UILabel *label;
+    UILabel *winnings;
+    UIButton *celebrate;
+    
+    NSInteger money;
 }
 
 - (id) initWithFrame: (CGRect) frame controller: (SlotViewController *) c;

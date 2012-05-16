@@ -27,6 +27,8 @@
               image: (UIImage *) image
               badge: (NSString *) badge;
 
+- (void) presentModalViewController;
+
 @property (nonatomic, copy) IBOutlet NSString *text;
 @property (nonatomic, strong) UIPickerView *picker;
 

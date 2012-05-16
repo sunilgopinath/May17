@@ -31,6 +31,8 @@
 		self.font = [UIFont fontWithName: @"Courier" size: 14]; //monospace
 		viewController = c;
         
+        money = 0;
+        
         button = [UIButton buttonWithType:UIButtonTypeCustom];
         UIImage *buttonImage = [UIImage imageNamed:@"spin.png"];
         [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
@@ -99,44 +101,78 @@
         
 		[self addSubview: label];
         
+        //winnings label
+		//Put upper left corner of label in upper left corner of View.
+		//Make label just big enough to hold the string.
+		f = CGRectMake(
+                              b.origin.x,
+                              216 + 20,
+                              s.width,
+                              s.height
+                              );
+        
+		winnings = [[UILabel alloc] initWithFrame: f];
+        winnings.backgroundColor = [UIColor clearColor];
+        winnings.textColor = [UIColor whiteColor];
+        winnings.text = [NSString stringWithFormat:@"winings: $%d.00", 0];
+		winnings.font = font;
+        
+		[self addSubview: winnings];
+        
+        
 	}
 	return self;
 }
 
 - (void) touchUpInside: (id) sender {
-	//The sender is the button that was pressed.
-    label.text = @"";
     [button removeFromSuperview];
-	NSLog(@"The button was pressed.");
-    BOOL win = NO;
-    int numInRow = 1;
-    int lastVal = -1;
-    for(int i = 0; i<5 ;i++)
-    {
-        int newValue = random() % [viewController.column1 count];
-        if(newValue == lastVal)
-            numInRow++;
-        else
-            numInRow =1;
-        lastVal = newValue;
-        [viewController.picker selectRow:newValue inComponent:i animated:YES];
-        [viewController.picker reloadComponent:i];
-        if(numInRow >= 3)
-            win = YES;
-    }
-    [self addSubview: playAgainbutton];
-    if(win) {
+    if(money <= -100) {
+        [button removeFromSuperview];
+        [playAgainbutton removeFromSuperview];
 
-        label.text = @"WIN!";
-        
-    }else {
-
+        label.text = @"Stop! think of your family!";
+    } else {
+        //The sender is the button that was pressed.
         label.text = @"";
         
+        NSLog(@"The button was pressed.");
+        BOOL win = NO;
+        int numInRow = 1;
+        int lastVal = -1;
+        for(int i = 0; i<5 ;i++)
+        {
+            int newValue = random() % [viewController.column1 count];
+            if(newValue == lastVal)
+                numInRow++;
+            else
+                numInRow =1;
+            lastVal = newValue;
+            [viewController.picker selectRow:newValue inComponent:i animated:YES];
+            [viewController.picker reloadComponent:i];
+            if(numInRow >= 3)
+                win = YES;
+        }
+        [self addSubview: playAgainbutton];
+        if(win) {
+            money = money + 5;
+            
+            label.text = @"WIN!";
+            [viewController presentModalViewController];
+        }else {
+            money = money - 1;
+            label.text = @"";
+            
+        }
+        winnings.text = [NSString stringWithFormat:@"winings: $%d.00", money];
     }
 
     
 }
+
+- (void) touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event {
+	[viewController presentModalViewController];
+}
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 /*

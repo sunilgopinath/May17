@@ -20,6 +20,7 @@
 		0F8E7ED815632DEA0021F777 /* crown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F8E7ED315632DEA0021F777 /* crown.png */; };
 		0F8E7ED915632DEA0021F777 /* lemon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F8E7ED415632DEA0021F777 /* lemon.png */; };
 		0F8E7EDA15632DEA0021F777 /* seven.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F8E7ED515632DEA0021F777 /* seven.png */; };
+		0F928DE91565638C005AE711 /* wheeltabicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F928DE81565638C005AE711 /* wheeltabicon.png */; };
 		0F977D4F1563FE1E00A9D2A4 /* spinbackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F977D4E1563FE1E00A9D2A4 /* spinbackground.jpg */; };
 		0F977D52156406A400A9D2A4 /* spin.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F977D51156406A400A9D2A4 /* spin.png */; };
 		0F977D5415640B7400A9D2A4 /* playagain.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F977D5315640B7400A9D2A4 /* playagain.gif */; };
@@ -70,6 +71,14 @@
 		0F977E5615643F6800A9D2A4 /* slot_machine.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F977E5515643F6800A9D2A4 /* slot_machine.png */; };
 		0F977E591564428600A9D2A4 /* RouletteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F977E581564428500A9D2A4 /* RouletteViewController.m */; };
 		0F977E5C1564429B00A9D2A4 /* RouletteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F977E5B1564429A00A9D2A4 /* RouletteView.m */; };
+		0F9843CE15645A8100BC0374 /* roulettewheel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F9843CD15645A8100BC0374 /* roulettewheel.jpg */; };
+		0F9843D1156463A700BC0374 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F9843D0156463A700BC0374 /* QuartzCore.framework */; };
+		0F9843D315647E7F00BC0374 /* wheel1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F9843D215647E7F00BC0374 /* wheel1.jpg */; };
+		0F9843D5156486CC00BC0374 /* fortune.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F9843D4156486CC00BC0374 /* fortune.png */; };
+		0F9843D715648A3300BC0374 /* wheelspinner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F9843D615648A3300BC0374 /* wheelspinner.jpg */; };
+		0F9843D915648CF200BC0374 /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F9843D815648CF200BC0374 /* triangle.png */; };
+		0F9843DC156495F700BC0374 /* NumberSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9843DB156495F700BC0374 /* NumberSelectorView.m */; };
+		0F9843DE1564AE4E00BC0374 /* pokerchips.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F9843DD1564AE4E00BC0374 /* pokerchips.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +101,7 @@
 		0F8E7ED315632DEA0021F777 /* crown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crown.png; sourceTree = SOURCE_ROOT; };
 		0F8E7ED415632DEA0021F777 /* lemon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lemon.png; sourceTree = SOURCE_ROOT; };
 		0F8E7ED515632DEA0021F777 /* seven.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seven.png; sourceTree = SOURCE_ROOT; };
+		0F928DE81565638C005AE711 /* wheeltabicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wheeltabicon.png; sourceTree = SOURCE_ROOT; };
 		0F977D4E1563FE1E00A9D2A4 /* spinbackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spinbackground.jpg; sourceTree = SOURCE_ROOT; };
 		0F977D51156406A400A9D2A4 /* spin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spin.png; sourceTree = SOURCE_ROOT; };
 		0F977D5315640B7400A9D2A4 /* playagain.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = playagain.gif; sourceTree = SOURCE_ROOT; };
@@ -146,6 +156,15 @@
 		0F977E581564428500A9D2A4 /* RouletteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouletteViewController.m; sourceTree = "<group>"; };
 		0F977E5A1564429A00A9D2A4 /* RouletteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouletteView.h; sourceTree = "<group>"; };
 		0F977E5B1564429A00A9D2A4 /* RouletteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouletteView.m; sourceTree = "<group>"; };
+		0F9843CD15645A8100BC0374 /* roulettewheel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = roulettewheel.jpg; sourceTree = SOURCE_ROOT; };
+		0F9843D0156463A700BC0374 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0F9843D215647E7F00BC0374 /* wheel1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wheel1.jpg; sourceTree = SOURCE_ROOT; };
+		0F9843D4156486CC00BC0374 /* fortune.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fortune.png; sourceTree = SOURCE_ROOT; };
+		0F9843D615648A3300BC0374 /* wheelspinner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wheelspinner.jpg; sourceTree = SOURCE_ROOT; };
+		0F9843D815648CF200BC0374 /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangle.png; sourceTree = SOURCE_ROOT; };
+		0F9843DA156495F700BC0374 /* NumberSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberSelectorView.h; sourceTree = "<group>"; };
+		0F9843DB156495F700BC0374 /* NumberSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberSelectorView.m; sourceTree = "<group>"; };
+		0F9843DD1564AE4E00BC0374 /* pokerchips.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokerchips.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F9843D1156463A700BC0374 /* QuartzCore.framework in Frameworks */,
 				0F977E541564367700A9D2A4 /* AVFoundation.framework in Frameworks */,
 				0F977DBC15642EA600A9D2A4 /* AudioToolbox.framework in Frameworks */,
 				0F8E7EB515631FA10021F777 /* UIKit.framework in Frameworks */,
@@ -184,6 +204,7 @@
 		0F8E7EB315631FA10021F777 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F9843D0156463A700BC0374 /* QuartzCore.framework */,
 				0F977E531564367700A9D2A4 /* AVFoundation.framework */,
 				0F977DBB15642EA600A9D2A4 /* AudioToolbox.framework */,
 				0F8E7EB415631FA10021F777 /* UIKit.framework */,
@@ -210,6 +231,8 @@
 				0F977E581564428500A9D2A4 /* RouletteViewController.m */,
 				0F977E5A1564429A00A9D2A4 /* RouletteView.h */,
 				0F977E5B1564429A00A9D2A4 /* RouletteView.m */,
+				0F9843DA156495F700BC0374 /* NumberSelectorView.h */,
+				0F9843DB156495F700BC0374 /* NumberSelectorView.m */,
 				0F8E7EBB15631FA10021F777 /* Supporting Files */,
 			);
 			path = May17;
@@ -218,6 +241,13 @@
 		0F8E7EBB15631FA10021F777 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0F928DE81565638C005AE711 /* wheeltabicon.png */,
+				0F9843DD1564AE4E00BC0374 /* pokerchips.png */,
+				0F9843D815648CF200BC0374 /* triangle.png */,
+				0F9843D615648A3300BC0374 /* wheelspinner.jpg */,
+				0F9843D4156486CC00BC0374 /* fortune.png */,
+				0F9843D215647E7F00BC0374 /* wheel1.jpg */,
+				0F9843CD15645A8100BC0374 /* roulettewheel.jpg */,
 				0F977E5515643F6800A9D2A4 /* slot_machine.png */,
 				0F977E511564362E00A9D2A4 /* cel.mp3 */,
 				0F977DC91564331B00A9D2A4 /* ios.png */,
@@ -376,6 +406,13 @@
 				0F977DCA1564331B00A9D2A4 /* ios.png in Resources */,
 				0F977E521564362E00A9D2A4 /* cel.mp3 in Resources */,
 				0F977E5615643F6800A9D2A4 /* slot_machine.png in Resources */,
+				0F9843CE15645A8100BC0374 /* roulettewheel.jpg in Resources */,
+				0F9843D315647E7F00BC0374 /* wheel1.jpg in Resources */,
+				0F9843D5156486CC00BC0374 /* fortune.png in Resources */,
+				0F9843D715648A3300BC0374 /* wheelspinner.jpg in Resources */,
+				0F9843D915648CF200BC0374 /* triangle.png in Resources */,
+				0F9843DE1564AE4E00BC0374 /* pokerchips.png in Resources */,
+				0F928DE91565638C005AE711 /* wheeltabicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +431,7 @@
 				0F977D5E156413EB00A9D2A4 /* CelebrationView.m in Sources */,
 				0F977E591564428600A9D2A4 /* RouletteViewController.m in Sources */,
 				0F977E5C1564429B00A9D2A4 /* RouletteView.m in Sources */,
+				0F9843DC156495F700BC0374 /* NumberSelectorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

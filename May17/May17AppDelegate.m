@@ -82,7 +82,7 @@
                                         [[RouletteViewController alloc]
                                          initWithText: @"You spin me right round!"	//apostophe, not prime
                                          title: @"Roulette"
-                                         image: [UIImage imageNamed: @"slot_machine.png"]
+                                         image: [UIImage imageNamed: @"wheeltabicon.png"]
                                          badge: nil
                                          ],
                                         nil

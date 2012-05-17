@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+#define DEGREES_TO_RADIANS(angle) (angle / 180.0 * M_PI)
+#define SPIN_CLOCK_WISE 1
+#define SPIN_COUNTERCLOCK_WISE -1
 
 @interface RouletteViewController : UIViewController {
 	NSString *text;
+    CABasicAnimation* rotationAnimation;
+    NSInteger winningNumber;
 }
 
 - (id) initWithText: (NSString *) t
@@ -17,6 +23,12 @@
               image: (UIImage *) image
               badge: (NSString *) badge;
 
+- (void) spinWheel:(id)sender spinLayer: (CALayer *)inLayer;
+- (void)spinLayer:(CALayer *)inLayer duration:(CFTimeInterval)inDuration
+        direction:(int)direction degrees: (CGFloat)degrees;
+//- (CGRect) findBet: (CGRect) rect view: (NSArray *) views;
+
 @property (nonatomic, copy) IBOutlet NSString *text;
+@property (nonatomic) NSInteger winningNumber;
 
 @end

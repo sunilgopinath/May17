@@ -29,7 +29,7 @@
 
 - (void) presentModalViewController;
 - (void) playSound:(id) sender;
-- (void) playCelebration: (id) sender;
+- (void) playCelebration;
 - (void) stopCelebration;
 
 @property (nonatomic, copy) IBOutlet NSString *text;

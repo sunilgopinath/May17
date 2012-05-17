@@ -15,6 +15,7 @@
 
 @implementation RouletteViewController
 @synthesize text;
+@synthesize winningNumber;
 
 /*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -37,6 +38,7 @@
 		self.tabBarItem.image = image;
 		self.tabBarItem.badgeValue = badge;
 		self.text = t;		//text = [t copy];
+        self.winningNumber = 0;
 	}
 	
 	return self;
@@ -65,5 +67,63 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+- (void) spinWheel:(id)sender spinLayer: (CALayer *)inLayer {
+    NSInteger random = rand() % 1000;
+    NSLog(@"random = %d", random);
+    NSLog(@"random mod 360 = %d", random % 360);
+    NSLog(@"winning number = %d", [self numberFromDegrees:random % 360]);
+    [self spinLayer:inLayer duration:1 direction:SPIN_COUNTERCLOCK_WISE degrees:random];
+    
+}
+
+- (void)spinLayer:(CALayer *)inLayer duration:(CFTimeInterval)inDuration
+        direction:(int)direction degrees: (CGFloat)degrees
+{
+    
+    rotationAnimation.timingFunction = 
+    [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    
+    // Perform the rotation over this many seconds
+    rotationAnimation.duration = inDuration;
+    
+    // Rotate about the z axis
+    rotationAnimation = 
+    [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    
+    // Rotate 360 degress, in direction specified
+    rotationAnimation.toValue = [NSNumber numberWithFloat: DEGREES_TO_RADIANS(degrees) * direction];
+    
+    
+    // Set the pacing of the animation
+    rotationAnimation.fillMode = kCAFillModeForwards;
+    rotationAnimation.removedOnCompletion = NO;
+    rotationAnimation.cumulative = YES;
+    rotationAnimation.additive = YES;
+    // Add animation to the layer and make it so
+    [inLayer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+}
+
+- (int) numberFromDegrees: (int)degrees {
+        NSLog(@"degrees = %d", degrees);
+    int winner = 0;
+    if(degrees >= 0 && degrees < 60) {
+        winner = 1;
+    } else if(degrees >= 60 && degrees < 120) {
+        winner = 3;
+    } else if(degrees >= 120 && degrees < 180) {
+        winner = 5;
+    } else if(degrees >= 180 && degrees < 240) {
+        winner = 2;
+    } else if(degrees >= 240 && degrees < 300) {
+        winner = 4;
+    } else {
+        winner = 6;
+    } 
+    self.winningNumber = winner;
+    return winner;
+}
+
 
 @end

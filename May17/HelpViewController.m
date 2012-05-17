@@ -32,8 +32,19 @@
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void) loadView
 {
-	CGRect frame = [UIScreen mainScreen].applicationFrame;
-	self.view = [[HelpView alloc] initWithFrame: frame controller: self];
+	NSURL *url = [NSURL URLWithString: @"http://en.wikipedia.org/wiki/Big_Six_wheel"];
+	NSData *data = [NSData dataWithContentsOfURL: url];
+	if (data == nil) {
+		NSLog(@"could not load URL %@", url);
+		return;
+	}
+    
+	//No reason to create the UIWebView if we couldn't create the NSData.
+	UIWebView *webView =
+    [[UIWebView alloc] initWithFrame: [UIScreen mainScreen].applicationFrame];
+    [webView  loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@
+                                                        "http://en.wikipedia.org/wiki/Big_Six_wheel"]]];
+	self.view = webView;
 }
 
 - (void) dismissModalViewController {
@@ -43,8 +54,17 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	[super viewDidLoad];
+    
+	//Fade in the green band.
+	[UIView animateWithDuration: 2
+                          delay: 1
+                        options: UIViewAnimationOptionCurveEaseInOut
+                     animations: ^{
+                         self.view.alpha = 1;
+                     }
+                     completion: NULL
+     ];
 }
 
 - (void)viewDidUnload

@@ -24,6 +24,7 @@
 		0F928DEC15656BBB005AE711 /* helpbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F928DEB15656BBB005AE711 /* helpbtn.png */; };
 		0F928DEF15657B77005AE711 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F928DEE15657B77005AE711 /* HelpViewController.m */; };
 		0F928DF215657B92005AE711 /* HelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F928DF115657B92005AE711 /* HelpView.m */; };
+		0F928DF4156580F3005AE711 /* casinoicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F928DF3156580F3005AE711 /* casinoicon.png */; };
 		0F977D4F1563FE1E00A9D2A4 /* spinbackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F977D4E1563FE1E00A9D2A4 /* spinbackground.jpg */; };
 		0F977D52156406A400A9D2A4 /* spin.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F977D51156406A400A9D2A4 /* spin.png */; };
 		0F977D5415640B7400A9D2A4 /* playagain.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F977D5315640B7400A9D2A4 /* playagain.gif */; };
@@ -110,6 +111,7 @@
 		0F928DEE15657B77005AE711 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		0F928DF015657B92005AE711 /* HelpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpView.h; sourceTree = "<group>"; };
 		0F928DF115657B92005AE711 /* HelpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpView.m; sourceTree = "<group>"; };
+		0F928DF3156580F3005AE711 /* casinoicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = casinoicon.png; sourceTree = SOURCE_ROOT; };
 		0F977D4E1563FE1E00A9D2A4 /* spinbackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spinbackground.jpg; sourceTree = SOURCE_ROOT; };
 		0F977D51156406A400A9D2A4 /* spin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spin.png; sourceTree = SOURCE_ROOT; };
 		0F977D5315640B7400A9D2A4 /* playagain.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = playagain.gif; sourceTree = SOURCE_ROOT; };
@@ -253,6 +255,7 @@
 		0F8E7EBB15631FA10021F777 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0F928DF3156580F3005AE711 /* casinoicon.png */,
 				0F928DEB15656BBB005AE711 /* helpbtn.png */,
 				0F928DE81565638C005AE711 /* wheeltabicon.png */,
 				0F9843DD1564AE4E00BC0374 /* pokerchips.png */,
@@ -427,6 +430,7 @@
 				0F9843DE1564AE4E00BC0374 /* pokerchips.png in Resources */,
 				0F928DE91565638C005AE711 /* wheeltabicon.png in Resources */,
 				0F928DEC15656BBB005AE711 /* helpbtn.png in Resources */,
+				0F928DF4156580F3005AE711 /* casinoicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,5 +32,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>casinoicon.png</string>
+	</array>
 </dict>
 </plist>

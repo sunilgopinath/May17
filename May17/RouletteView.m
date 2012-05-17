@@ -32,132 +32,41 @@
 		self.autoresizingMask = UIViewAutoresizingFlexibleHeight;
 		viewController = c;
         
-        // CREATE BIG WHEEL
-        UIImage *wheel = [UIImage imageNamed:@"wheelspinner.jpg"];
-        NSLog(@"image.size = %f", wheel.size.width);
-        rouletteWheel = [[UIImageView alloc] initWithImage:wheel];
-        CGRect b = self.bounds;
-		CGSize s = wheel.size;
-        
-		rouletteWheel.frame = CGRectMake(
-                                  b.origin.x + (b.size.width - s.width) / 2,
-                                  b.origin.y + (b.size.height - s.height) / 2 - 30,
-                                  s.width,
-                                  s.height
-                                  );
-        
-        //CREATE POINTER
-        UIImage *triangle = [UIImage imageNamed:@"triangle.png"];
-        NSLog(@"image.size = %f", triangle.size.width);
-        triangleView = [[UIImageView alloc] initWithImage:triangle];
-        s = triangle.size;
-		triangleView.frame = CGRectMake(
-                                         b.origin.x + (b.size.width - s.width) / 2,
-                                         b.origin.y + (b.size.height - s.height) / 2 - 160,
-                                         s.width,
-                                         s.height
-                                         );
-        // CREATE ROTATE BUTTON
-		spin = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-		s = CGSizeMake(200, 40);	//size of button
-		spin.frame = CGRectMake(
-                                  b.origin.x,
-                                  b.origin.y,
-                                  s.width,
-                                  s.height
-                                  );
-        
-		[spin setTitleColor: [UIColor redColor] forState: UIControlStateNormal];
-		[spin setTitle: @"Rotate" forState: UIControlStateNormal];
-        
-		[spin addTarget: self
-                   action: @selector(spinWheel:)
-         forControlEvents: UIControlEventTouchUpInside
-         ];
-        
-        // CREATE PLAY AGAIN BUTTON
-        playAgain = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIImage *playAgainImageDown = [UIImage imageNamed:@"02.png"];
-        UIImage *playAgainImageUp = [UIImage imageNamed:@"01.png"];
-        [playAgain setBackgroundImage:playAgainImageUp forState:UIControlStateNormal];
-        [playAgain setBackgroundImage:playAgainImageDown forState:UIControlEventTouchDown];
-        
-        //we know that the picker has bounds 320 x 216 so we need to position the button
-        //under that space in center.
-        
-        
-		playAgain.frame = CGRectMake(b.size.width - playAgainImageDown.size.width - 10, 
-                                     b.size.height - playAgainImageDown.size.height - 110,
-                                     playAgainImageDown.size.width,
-                                     playAgainImageDown.size.height
-                                     );
-        
-		[playAgain setTitleColor: [UIColor redColor] forState: UIControlStateNormal];
-		//[button setTitle: @"Play" forState: UIControlStateNormal];
-        
-		[playAgain addTarget:self
-                            action: @selector(spinWheel:)
-                  forControlEvents: UIControlEventTouchUpInside
-         ];
-        
-        // CREATE WINNING NUMBER LABEL
-        text = [NSString stringWithFormat: @"The winning number is %d!", viewController.winningNumber];
-		UIFont *font = [UIFont systemFontOfSize: 16];
-		s = [text sizeWithFont: font];
-		CGRect f = CGRectMake(
-                              b.origin.x + (b.size.width - s.width) / 2,
-                              self.bounds.origin.y + 360,
-                              s.width,
-                              s.height
-                              );
-        
-		label = [[UILabel alloc] initWithFrame: f];
-		label.backgroundColor = [UIColor clearColor];
-		label.font = font;
+        b = self.bounds;
+
+        // CREATE TITLE LABEL
+        [self initTitleLabel];
+        // CREATE HELP ICON
+        [self initHelpIcon];
+        // CREATE POINTER
+        [self initPointer];
+        // CREATE POKER CHIPS
+        [self initPokerChips];
+        // CREATE WHEEL
+        [self initWheel];
+        // CREATE PLAY BUTTON
+        [self initPlayButton];
+        [self initPlayAgain];
+        [self initWinningNumberLabel];
+
+        /*
 
         
+        //CREATE POINTER
+
+        
+
+
+         */
         //CREATE NUMBER OPTIONS
         NSString *title = @"";
-        font = [UIFont systemFontOfSize: 16];
-        s = [title sizeWithFont: font];
         CGFloat width = 53;
         CGFloat height = 60;
         CGFloat yPosition = self.bounds.origin.y + 360;
         UIColor *color;
         NSLog(@"width = %f", b.size.width);
         
-
-        NSArray *viewColors = [NSArray arrayWithObjects:
-                               [UIColor redColor],                                                    
-                               [UIColor orangeColor],                             
-                               [UIColor yellowColor],
-                               [UIColor greenColor],
-                               [UIColor blueColor],                               
-                               [UIColor purpleColor],
-                               nil
-                               ];
-
-        NSLog(@"view colors = %d", viewColors.count);
-        /*
-        for(int i = 0; i < 2; i++) {
-            title = [NSString stringWithFormat:@"%d", i];
-            NSLog(@"title = %@", title);
-            frame = CGRectMake(
-                               i*width,
-                               yPosition,
-                               width,
-                               height);
-            UIColor *color = [viewColors objectAtIndex:i];
-            NSLog(@"color = %f", color);
-            UIView *view = [views objectAtIndex:i];
-            view = [[NumberSelectorView alloc] initWithFrame:frame                                                              
-                                                         col:color 
-                                                        text:title                                                         
-                                                           w:width 
-                                                           h:height];
-
-        }
-         */
+        
         
         //ONE: RED
         title = @"1";
@@ -247,27 +156,6 @@
                                                              w:width 
                                                              h:height];
 
-        UIImage *chips = [UIImage imageNamed:@"pokerchips.png"];
-        NSLog(@"image.size = %f", triangle.size.width);
-        pokerChipView = [[UIImageView alloc] initWithImage:chips];
-        s = chips.size;
-		pokerChipView.frame = CGRectMake(
-                                        b.size.width - 50,
-                                        b.origin.y + (b.size.height - s.height) / 2 - 160,
-                                        s.width,
-                                        s.height
-                                        );
-        
-        frames = [NSArray arrayWithObjects: [NSValue valueWithCGRect:redView.frame], 
-                                            [NSValue valueWithCGRect:orangeView.frame], 
-                                            [NSValue valueWithCGRect:yellowView.frame], 
-                                            [NSValue valueWithCGRect:greenView.frame], 
-                                            [NSValue valueWithCGRect:blueView.frame], 
-                                            [NSValue valueWithCGRect:purpleView.frame], 
-                                             nil];
-        
-        NSLog(@"title = %@", redView.text);
-        NSLog(@"frames.count = %d", frames.count);
         
         views = [NSArray arrayWithObjects: redView,
                  orangeView, 
@@ -282,8 +170,8 @@
         
         //SEQUENCE OF ADDING VIEWS
         [self addSubview:rouletteWheel];
-        [self addSubview:triangleView];
-        [self addSubview: spin];
+
+        
 		//[self addSubview: label];
         [self addSubview:redView];
         [self addSubview:orangeView];
@@ -291,9 +179,15 @@
         [self addSubview:greenView];
         [self addSubview:blueView];
         [self addSubview:purpleView];
-        
+
+        [self addSubview: titleLabel];
+        [self addSubview:help];
+        [self addSubview:triangleView];
         [self addSubview: pokerChipView];
-        [self addSubview:playAgain];
+        [self addSubview:play];
+        
+        //[self addSubview:playAgain];
+        //[self addSubview:winningNumberLabel];
 
 	}
 	return self;
@@ -304,14 +198,43 @@
     [viewController spinWheel:sender spinLayer:rouletteWheel.layer];
     text = [NSString stringWithFormat: @"The winning number is %d!", viewController.winningNumber];
     NSLog(@"winning Number = %@", text);
-    label.text = text;
+    [self addSubview:winningNumberLabel];
+    winningNumberLabel.text = text;
     NSLog(@"bet = %@", bet);
+    NSString *winningNumberConverted = [NSString stringWithFormat:@"%d", viewController.winningNumber];
     if([bet isEqualToString:[NSString stringWithFormat:@"%d", viewController.winningNumber]]) {
         NSLog(@"you won!");
     }
-    pokerChipView.center = CGPointMake(150, 150);
+    if([self didWin:bet win:winningNumberConverted]) {
+        [self initResultWin];
+    }
+    [self afterSpingWheel];
+    [self addSubview:playAgain];
 }
 
+// cleans up view to disable user interaction
+- (void) afterSpingWheel {
+    
+    play.userInteractionEnabled = NO;
+    
+    
+}
+
+- (void) playAgainYes {
+    play.userInteractionEnabled = YES;
+    [playAgain removeFromSuperview];
+    [winningNumberLabel removeFromSuperview];
+    pokerChipView.center = CGPointMake(b.size.width - 30, b.origin.y + 70);
+    [result removeFromSuperview];
+}
+
+- (BOOL) didWin: (NSString *) b1 win:(NSString *) wn {
+    
+    if([b1 isEqualToString:wn]) {
+        return YES;
+    } 
+    return NO;
+}
 - (void) touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event {
 	pokerChipView.backgroundColor = [UIColor greenColor];
 
@@ -347,6 +270,199 @@
     }
     
     return [NumberSelectorView alloc];
+}
+
+- (void) initTitleLabel {
+    
+    NSString *string = @"Casino Big Wheel";
+    UIFont *font = [UIFont fontWithName: @"Arial" size: 18.0];
+    CGSize size = [string sizeWithFont: font];
+    
+    //Put upper left corner of label in upper left corner of View.
+    //Make label just big enough to hold the string.
+    CGRect f = CGRectMake(
+                          self.bounds.origin.x,
+                          self.bounds.origin.y,
+                          size.width,
+                          size.height
+                          );
+    
+    titleLabel = [[UILabel alloc] initWithFrame: f];
+    titleLabel.backgroundColor = [UIColor clearColor];
+    titleLabel.font = font;
+    titleLabel.text = string;
+    titleLabel.textColor = [UIColor blueColor];
+    //return label;
+}
+
+- (void) initWheel {
+    
+    UIImage *wheel = [UIImage imageNamed:@"wheelspinner.jpg"];
+    NSLog(@"image.size = %f", wheel.size.width);
+    rouletteWheel = [[UIImageView alloc] initWithImage:wheel];
+    CGSize s = wheel.size;
+    
+    rouletteWheel.frame = CGRectMake(
+                                     b.origin.x + (b.size.width - s.width) / 2,
+                                     b.origin.y + (b.size.height - s.height) / 2 - 30,
+                                     s.width,
+                                     s.height
+                                     );
+}
+
+- (void) initHelpIcon {
+    
+    help = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *helpIcon = [UIImage imageNamed:@"helpbtn.png"];
+    [help setBackgroundImage:helpIcon forState:UIControlStateNormal]; 
+    help.frame = CGRectMake(b.size.width - helpIcon.size.width - 10, 
+                                 b.origin.y + 5,
+                                 helpIcon.size.width,
+                                 helpIcon.size.height
+                                 );
+    
+    [help addTarget:self
+                  action: @selector(spinWheel:)
+        forControlEvents: UIControlEventTouchUpInside
+     ];
+
+    
+}
+
+- (void) initPokerChips {
+    
+    UIImage *chips = [UIImage imageNamed:@"pokerchips.png"];
+    pokerChipView = [[UIImageView alloc] initWithImage:chips];
+    CGSize s = chips.size;
+    pokerChipView.frame = CGRectMake(
+                                     b.size.width - 50,
+                                     b.origin.y + (b.size.height - s.height) / 2 - 160,
+                                     s.width,
+                                     s.height
+                                     );
+
+    
+}
+
+- (void) initPointer {
+    
+    UIImage *triangle = [UIImage imageNamed:@"triangle.png"];
+    triangleView = [[UIImageView alloc] initWithImage:triangle];
+    CGSize s = triangle.size;
+    triangleView.frame = CGRectMake(
+                                    b.origin.x + (b.size.width - s.width) / 2,
+                                    b.origin.y + (b.size.height - s.height) / 2 - 160,
+                                    s.width,
+                                    s.height
+                                    );
+}
+
+- (void) initPlayButton {
+    
+    play = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *playImageDown = [UIImage imageNamed:@"02.png"];
+    UIImage *playImageUp = [UIImage imageNamed:@"01.png"];
+    [play setBackgroundImage:playImageUp forState:UIControlStateNormal];
+    [play setBackgroundImage:playImageDown forState:UIControlEventTouchDown];
+    
+    play.frame = CGRectMake(b.size.width - playImageDown.size.width - 10, 
+                                 b.size.height - playImageDown.size.height - 110,
+                                 playImageDown.size.width,
+                                 playImageDown.size.height
+                                 );
+    
+    [play addTarget:self
+                  action: @selector(spinWheel:)
+        forControlEvents: UIControlEventTouchUpInside
+     ];
+    
+}
+
+- (void) initPlayAgain {
+    
+    playAgain = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *playAgainImage = [UIImage imageNamed:@"playagain.gif"];
+    [playAgain setBackgroundImage:playAgainImage forState:UIControlStateNormal];
+    
+
+    CGSize s = playAgainImage.size;
+    
+    playAgain.frame = CGRectMake(b.origin.x + (b.size.width - s.width) / 2,
+                                 b.origin.y + (b.size.height - s.height) / 2,
+                                 s.width,
+                                 s.height
+                                 );
+    
+    
+    [playAgain addTarget:self
+                        action: @selector(playAgainYes)
+              forControlEvents: UIControlEventTouchUpInside
+     ];
+    
+}
+
+- (void) initWinningNumberLabel {
+    
+    // CREATE WINNING NUMBER LABEL
+    text = [NSString stringWithFormat: @"The winning number is %d!", viewController.winningNumber];
+    UIFont *font = [UIFont fontWithName: @"Arial" size: 16.0];
+    CGSize s = [text sizeWithFont: font];
+    CGRect f = CGRectMake(
+                          b.origin.x,
+                          b.origin.y + 20,
+                          s.width,
+                          s.height
+                          );
+    
+    winningNumberLabel = [[UILabel alloc] initWithFrame: f];
+    winningNumberLabel.backgroundColor = [UIColor clearColor];
+    winningNumberLabel.font = font;
+    winningNumberLabel.textColor = [UIColor blackColor];
+    ///winningNumberLabel.text = text;
+}
+
+- (void) initResultWin {
+    
+    //Trailing blank to avoid cutting off last letter
+    //because italic leans to the right.
+    NSString *str = @"CONGRATULATIONS ";
+    
+    UIFont *font = [UIFont italicSystemFontOfSize: b.size.height];
+    CGSize size = [str sizeWithFont: font];
+    
+    CGRect f = CGRectMake(
+                          b.size.width,
+                          0,
+                          size.width,
+                          size.height
+                          );
+    
+    result = [[UILabel alloc] initWithFrame: f];
+    result.font = font;
+    result.backgroundColor = [UIColor clearColor];
+    result.textColor = [UIColor whiteColor];
+    result.text = str;
+    [self addSubview: result];
+    [self animateWin];
+    
+}
+
+- (void) animateWin {
+    
+    [UIView animateWithDuration: 5
+                          delay: 1
+                        options: UIViewAnimationOptionCurveLinear
+                     animations: ^{
+                         //Move the label far enough to the left
+                         //so that it's out of the View.
+                         result.center = CGPointMake(
+                                                    -result.bounds.size.width / 2,
+                                                    self.bounds.size.height / 2
+                                                    );
+                     }
+                     completion: NULL
+     ];
+    
 }
 
 

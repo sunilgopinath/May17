@@ -13,12 +13,22 @@
 @class RouletteViewController;
 
 @interface RouletteView : UIView {
-	RouletteViewController *viewController;
+	
+    RouletteViewController *viewController;
+    
+    CGRect b; //holder for self.bounds so we can use globally
+
+    //title label
+    UILabel *titleLabel;
+    //help button
+    UIButton *help;
+    //play again
+    UIButton *playAgain;
+    
     UIImageView *rouletteWheel;
     UIImageView *triangleView;
-    UIButton *spin;
-    UIButton *playAgain;
-    UILabel *label;
+    UIButton *play;
+    UILabel *winningNumberLabel;
     NSString *text;
     
     NumberSelectorView *redView;
@@ -33,6 +43,8 @@
     NSString *bet;
     
     UIImageView *pokerChipView;
+    
+    UILabel *result;
 }
 
 - (id) initWithFrame: (CGRect) frame controller: (RouletteViewController *) c;

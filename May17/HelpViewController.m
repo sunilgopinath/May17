@@ -7,7 +7,6 @@
 //
 
 #import "HelpViewController.h"
-#import "HelpView.h"
 
 @interface HelpViewController ()
 

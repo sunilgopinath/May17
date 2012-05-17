@@ -45,6 +45,10 @@
     UIImageView *pokerChipView;
     
     UILabel *result;
+    UILabel *warning;
+    
+    UILabel *winnings;
+    
 }
 
 - (id) initWithFrame: (CGRect) frame controller: (RouletteViewController *) c;

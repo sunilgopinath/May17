@@ -194,38 +194,62 @@
 }
 
 - (void) spinWheel:(id)sender {
-
-    [viewController spinWheel:sender spinLayer:rouletteWheel.layer];
-    text = [NSString stringWithFormat: @"The winning number is %d!", viewController.winningNumber];
-    NSLog(@"winning Number = %@", text);
-    [self addSubview:winningNumberLabel];
-    winningNumberLabel.text = text;
-    NSLog(@"bet = %@", bet);
-    NSString *winningNumberConverted = [NSString stringWithFormat:@"%d", viewController.winningNumber];
-    if([bet isEqualToString:[NSString stringWithFormat:@"%d", viewController.winningNumber]]) {
-        NSLog(@"you won!");
+    
+    NumberSelectorView *betPlaced = [self findBet:pokerChipView.frame frames:views];
+    if([betPlaced text] > 0) {
+        
+        //make sure warning label is removed
+        [warning removeFromSuperview];
+        
+        // find what number the user has bet on
+        NSLog(@"greater than 0, text = %@", betPlaced.text);
+        bet = betPlaced.text;
+        
+        // spin the wheel
+        [viewController spinWheel:sender spinLayer:rouletteWheel.layer];
+        
+        // display the wheel's result
+        text = [NSString stringWithFormat: @"The winning number is %d!", viewController.winningNumber];
+        [self addSubview:winningNumberLabel];
+        winningNumberLabel.text = text;
+        [self animateWinningLabel];
+        
+        // compare the bet with the wheel result
+        NSLog(@"bet = %@", bet);
+        NSString *winningNumberConverted = [NSString stringWithFormat:@"%d", viewController.winningNumber];
+        if([self didWin:bet win:winningNumberConverted]) {
+            [self initResultWin];
+        }
+        
+        // clean up game
+        [self afterSpingWheel];
+        [self addSubview:playAgain];
+        
+    } else {
+        
+        //display warning label
+        [self initWarningLabel];
+        [self addSubview:warning];
+        
     }
-    if([self didWin:bet win:winningNumberConverted]) {
-        [self initResultWin];
-    }
-    [self afterSpingWheel];
-    [self addSubview:playAgain];
 }
 
 // cleans up view to disable user interaction
 - (void) afterSpingWheel {
     
     play.userInteractionEnabled = NO;
-    
+    pokerChipView.userInteractionEnabled = NO;
     
 }
 
 - (void) playAgainYes {
+    
     play.userInteractionEnabled = YES;
     [playAgain removeFromSuperview];
     [winningNumberLabel removeFromSuperview];
     pokerChipView.center = CGPointMake(b.size.width - 30, b.origin.y + 70);
     [result removeFromSuperview];
+    
 }
 
 - (BOOL) didWin: (NSString *) b1 win:(NSString *) wn {
@@ -235,6 +259,7 @@
     } 
     return NO;
 }
+
 - (void) touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event {
 	pokerChipView.backgroundColor = [UIColor greenColor];
 
@@ -242,24 +267,13 @@
 
 - (void) touchesMoved: (NSSet *) touches withEvent: (UIEvent *) event {
 	pokerChipView.center = [[touches anyObject] locationInView: self];
-    NSLog(@"frame size = %f", greenView.frame.size.width);
-    if(CGRectIntersectsRect(pokerChipView.frame, greenView.frame)) {
-        NSLog(@"there is an intersection!");
-    }
 }
 
 - (void) touchesEnded: (NSSet *) touches withEvent: (UIEvent *) event {
 	pokerChipView.backgroundColor = [UIColor yellowColor];
-    if(CGRectIntersectsRect(pokerChipView.frame, greenView.frame)) {
-        NSLog(@"there was an intersection!");
-    }
-    NumberSelectorView *j = [self findBet:pokerChipView.frame frames:views];
-    if([j text] > 0) {
-        NSLog(@"greater than 0, text = %@", j.text);
-        bet = j.text;
-    }
 }
 
+// find an intersection
 - (NumberSelectorView *) findBet: (CGRect) rect frames: (NSArray *) rects {
     for(int i = 0; i < rects.count; i++) {
         NumberSelectorView *imageView = [rects objectAtIndex:i];
@@ -276,14 +290,14 @@
     [viewController presentModalViewController];
 }
 
+#pragma mark - Initialise subviews
+
 - (void) initTitleLabel {
     
     NSString *string = @"Casino Big Wheel";
     UIFont *font = [UIFont fontWithName: @"Arial" size: 18.0];
     CGSize size = [string sizeWithFont: font];
     
-    //Put upper left corner of label in upper left corner of View.
-    //Make label just big enough to hold the string.
     CGRect f = CGRectMake(
                           self.bounds.origin.x,
                           self.bounds.origin.y,
@@ -296,7 +310,7 @@
     titleLabel.font = font;
     titleLabel.text = string;
     titleLabel.textColor = [UIColor blueColor];
-    //return label;
+
 }
 
 - (void) initWheel {
@@ -422,7 +436,8 @@
     winningNumberLabel.backgroundColor = [UIColor clearColor];
     winningNumberLabel.font = font;
     winningNumberLabel.textColor = [UIColor blackColor];
-    ///winningNumberLabel.text = text;
+    winningNumberLabel.alpha = 0.0;
+
 }
 
 - (void) initResultWin {
@@ -469,7 +484,58 @@
     
 }
 
+- (void) initWarningLabel {
+    
+    // CREATE WINNING NUMBER LABEL
+    text = [NSString stringWithFormat: @"You must place a bet to play"];
+    UIFont *font = [UIFont fontWithName: @"Arial" size: 16.0];
+    CGSize s = [text sizeWithFont: font];
+    CGRect f = CGRectMake(
+                          b.origin.x,
+                          b.origin.y + 20,
+                          s.width,
+                          s.height
+                          );
+    
+    warning = [[UILabel alloc] initWithFrame: f];
+    warning.backgroundColor = [UIColor clearColor];
+    warning.font = font;
+    warning.textColor = [UIColor blackColor];
+    warning.text = text;
+}
 
+- (void) animateWinningLabel {
+    
+    [UIView animateWithDuration: 1
+                          delay: 1
+                        options: UIViewAnimationOptionCurveLinear
+                     animations: ^{
+                         winningNumberLabel.alpha = 1.0;
+                     }
+                     completion: NULL
+     ];
+    
+}
+
+- (void) initTally {
+    
+    // CREATE WINNING NUMBER LABEL
+    text = [NSString stringWithFormat: @"You must place a bet to play"];
+    UIFont *font = [UIFont fontWithName: @"Arial" size: 16.0];
+    CGSize s = [text sizeWithFont: font];
+    CGRect f = CGRectMake(
+                          b.origin.x,
+                          b.origin.y + 20,
+                          s.width,
+                          s.height
+                          );
+    
+    winnings = [[UILabel alloc] initWithFrame: f];
+    winnings.backgroundColor = [UIColor clearColor];
+    winnings.font = font;
+    winnings.textColor = [UIColor blackColor];
+    warning.text = text;
+}
 /*
 - (void) drawRect: (CGRect) rect
 {

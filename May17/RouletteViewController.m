@@ -9,6 +9,7 @@
 #import "RouletteViewController.h"
 #import "RouletteView.h"
 #import "HelpViewController.h"
+#import "May17AppDelegate.h"
 
 @interface RouletteViewController ()
 
@@ -133,6 +134,12 @@
       ]
                             animated: YES
      ];
+}
+
+- (void) playCongratulations:(id)sender {
+    UIApplication *application = [UIApplication sharedApplication];
+	May17AppDelegate *applicationDelegate = application.delegate;
+	[applicationDelegate playCongratulations:sender];
 }
 
 @end

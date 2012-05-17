@@ -27,6 +27,7 @@
 - (void)spinLayer:(CALayer *)inLayer duration:(CFTimeInterval)inDuration
         direction:(int)direction degrees: (CGFloat)degrees;
 - (void) presentModalViewController;
+- (void) playCongratulations:(id) sender;
 
 @property (nonatomic, copy) IBOutlet NSString *text;
 @property (nonatomic) NSInteger winningNumber;

@@ -15,11 +15,13 @@
 	UIWindow *_window;
     SystemSoundID sid;
     AVAudioPlayer *player;
+    SystemSoundID sidCongratulations;
 }
 
 - (void) playSound:(id) sender;
 - (void) playCelebration;
 - (void) stopCelebration;
+- (void) playCongratulations:(id) sender;
 
 @property (strong, nonatomic) UIWindow *window;
 

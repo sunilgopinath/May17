@@ -197,7 +197,7 @@
     
     NumberSelectorView *betPlaced = [self findBet:pokerChipView.frame frames:views];
     if([betPlaced text] > 0) {
-        
+        [viewController playCongratulations:sender];
         //make sure warning label is removed
         [warning removeFromSuperview];
         
@@ -218,6 +218,7 @@
         NSLog(@"bet = %@", bet);
         NSString *winningNumberConverted = [NSString stringWithFormat:@"%d", viewController.winningNumber];
         if([self didWin:bet win:winningNumberConverted]) {
+            
             [self initResultWin];
         }
         
@@ -446,7 +447,7 @@
     //because italic leans to the right.
     NSString *str = @"CONGRATULATIONS ";
     
-    UIFont *font = [UIFont italicSystemFontOfSize: b.size.height];
+    UIFont *font = [UIFont italicSystemFontOfSize: 30];
     CGSize size = [str sizeWithFont: font];
     
     CGRect f = CGRectMake(
@@ -468,7 +469,7 @@
 
 - (void) animateWin {
     
-    [UIView animateWithDuration: 5
+    [UIView animateWithDuration: 10
                           delay: 1
                         options: UIViewAnimationOptionCurveLinear
                      animations: ^{

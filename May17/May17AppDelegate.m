@@ -34,6 +34,24 @@
 		NSLog(@"AudioServicesCreateSystemSoundID error == %ld", error);
 	}
     
+    /******************************
+     *** SET UP CONGRATULATIONS ***
+     ******************************/
+    // Override point for customization after application launch.
+	NSBundle *bundleCongratulations = [NSBundle mainBundle];
+	NSLog(@"bundle.bundlePath == \"%@\"", bundleCongratulations.bundlePath);	
+    
+	NSString *filenameCongratulations = [bundleCongratulations pathForResource: @"spinningsound" ofType: @"mp3"];
+	NSLog(@"filename == \"%@\"", filenameCongratulations);
+    
+	NSURL *urlCongratulations = [NSURL fileURLWithPath: filenameCongratulations isDirectory: NO];
+	NSLog(@"url == \"%@\"", urlCongratulations);
+    
+	OSStatus errorCongratulations = AudioServicesCreateSystemSoundID((__bridge CFURLRef)urlCongratulations, &sidCongratulations);
+	if (errorCongratulations != kAudioServicesNoError) {
+		NSLog(@"AudioServicesCreateSystemSoundID error == %ld", errorCongratulations);
+	}
+    
     /**********************
      ** SET UP CELEBRATE **
      *********************/
@@ -145,4 +163,15 @@
         NSLog(@"prepareToPlay failed");
     }
 }
+
+- (void) playCongratulations: (id) sender {
+	//The sender is the button that was pressed.
+    
+	NSLog(@"The \"%@\" button was pressed.",
+		  [sender titleForState: UIControlStateNormal]);
+    
+	//AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+	AudioServicesPlaySystemSound(sidCongratulations);
+}
+
 @end

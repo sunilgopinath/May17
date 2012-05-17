@@ -8,6 +8,7 @@
 
 #import "RouletteViewController.h"
 #import "RouletteView.h"
+#import "HelpViewController.h"
 
 @interface RouletteViewController ()
 
@@ -125,5 +126,13 @@
     return winner;
 }
 
+- (void) presentModalViewController {
+    [self presentModalViewController:
+     [[UINavigationController alloc] initWithRootViewController:
+      [[HelpViewController alloc] initWithNibName: nil bundle: nil]
+      ]
+                            animated: YES
+     ];
+}
 
 @end

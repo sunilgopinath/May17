@@ -272,6 +272,10 @@
     return [NumberSelectorView alloc];
 }
 
+- (void) showHelp: (id) sender {
+    [viewController presentModalViewController];
+}
+
 - (void) initTitleLabel {
     
     NSString *string = @"Casino Big Wheel";
@@ -322,7 +326,7 @@
                                  );
     
     [help addTarget:self
-                  action: @selector(spinWheel:)
+                  action: @selector(showHelp:)
         forControlEvents: UIControlEventTouchUpInside
      ];
 

@@ -26,7 +26,7 @@
 - (void) spinWheel:(id)sender spinLayer: (CALayer *)inLayer;
 - (void)spinLayer:(CALayer *)inLayer duration:(CFTimeInterval)inDuration
         direction:(int)direction degrees: (CGFloat)degrees;
-//- (CGRect) findBet: (CGRect) rect view: (NSArray *) views;
+- (void) presentModalViewController;
 
 @property (nonatomic, copy) IBOutlet NSString *text;
 @property (nonatomic) NSInteger winningNumber;

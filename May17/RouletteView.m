@@ -48,7 +48,7 @@
         [self initPlayButton];
         [self initPlayAgain];
         [self initWinningNumberLabel];
-
+        [self initTally];
         /*
 
         
@@ -166,7 +166,7 @@
                  nil];
         
         bet = @"";
-
+        money = 0;
         
         //SEQUENCE OF ADDING VIEWS
         [self addSubview:rouletteWheel];
@@ -188,6 +188,7 @@
         
         //[self addSubview:playAgain];
         //[self addSubview:winningNumberLabel];
+        [self addSubview:winnings];
 
 	}
 	return self;
@@ -218,9 +219,22 @@
         NSLog(@"bet = %@", bet);
         NSString *winningNumberConverted = [NSString stringWithFormat:@"%d", viewController.winningNumber];
         if([self didWin:bet win:winningNumberConverted]) {
-            
+            money += 10;
             [self initResultWin];
+        } else {
+            money--;
         }
+        
+        
+        if(money > 0) {
+            NSLog(@"money =  %d", money);
+            winnings.textColor = [UIColor blackColor];
+            
+        } else {
+            winnings.textColor = [UIColor redColor];
+        }
+        NSLog(@" SDFHSKDFLKSJDFLKJSDFLJS ");
+        winnings.text = [NSString stringWithFormat:@"You are $%d", abs(money)];
         
         // clean up game
         [self afterSpingWheel];
@@ -512,6 +526,7 @@
                         options: UIViewAnimationOptionCurveLinear
                      animations: ^{
                          winningNumberLabel.alpha = 1.0;
+                         winnings.alpha = 1.0;
                      }
                      completion: NULL
      ];
@@ -521,12 +536,12 @@
 - (void) initTally {
     
     // CREATE WINNING NUMBER LABEL
-    text = [NSString stringWithFormat: @"You must place a bet to play"];
+    text = [NSString stringWithFormat: @"You are $0"];
     UIFont *font = [UIFont fontWithName: @"Arial" size: 16.0];
     CGSize s = [text sizeWithFont: font];
     CGRect f = CGRectMake(
                           b.origin.x,
-                          b.origin.y + 20,
+                          b.origin.y + 40,
                           s.width,
                           s.height
                           );
@@ -535,7 +550,8 @@
     winnings.backgroundColor = [UIColor clearColor];
     winnings.font = font;
     winnings.textColor = [UIColor blackColor];
-    warning.text = text;
+    winnings.text = text;
+    winnings.alpha = 0.0;
 }
 /*
 - (void) drawRect: (CGRect) rect

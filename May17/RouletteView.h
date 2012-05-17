@@ -48,6 +48,7 @@
     UILabel *warning;
     
     UILabel *winnings;
+    NSInteger money;
     
 }
 

@@ -138,7 +138,7 @@
 
 - (void) playCongratulations:(id)sender {
     UIApplication *application = [UIApplication sharedApplication];
-	May17AppDelegate *applicationDelegate = application.delegate;
+	May17AppDelegate *applicationDelegate = (May17AppDelegate *)application.delegate;
 	[applicationDelegate playCongratulations:sender];
 }
 

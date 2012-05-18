@@ -537,7 +537,7 @@
     
     // CREATE WINNING NUMBER LABEL
     text = [NSString stringWithFormat: @"You are $0"];
-    UIFont *font = [UIFont fontWithName: @"Arial" size: 16.0];
+    UIFont *font = [UIFont fontWithName: @"Arial" size: 13.0];
     CGSize s = [text sizeWithFont: font];
     CGRect f = CGRectMake(
                           b.origin.x,
